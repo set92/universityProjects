@@ -1,0 +1,6 @@
+#-l uso de libreria, y al nombre se le quita el lib de delante
+#asi que usamos libGL.so, libGLU.so y libglut.so
+
+gcc -lGL -lGLU -lglut prueba.c -o test.exe
+
+
