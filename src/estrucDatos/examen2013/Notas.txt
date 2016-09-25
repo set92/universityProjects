@@ -1,4 +1,0 @@
-Ejercicio 1 - obtenerSupervivientes
-Ejercicio 2 - Partida de cartas
-
-Ejercicio 4 - Alumnos con mejor nota

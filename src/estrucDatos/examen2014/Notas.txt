@@ -1,4 +1,0 @@
-
-Ejercicio 2 - Ordenacion por Raiz
-
-Ejercicio 4 - Evaluar expresion aritmetica
