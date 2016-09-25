@@ -1,147 +1,157 @@
+#include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <GL/glut.h>
-#include <math.h>
 
-struct Vertex {
+typedef struct {
     float x,y,u,v;
-};
+} Vertex;
 
-struct Vertex v1, v2, v3;
+Vertex v1, v2, v3;
+Vertex *aptr, *bptr, *mptr; // punteros al alto, bajo y medio
+Vertex *iptr, *dptr;
+Vertex *selectptoptr;
 
-//Quedara la y mas baja en v1.y, y la mas alta en v3.y
+/**
+ * Ordena los vertices usando 3 puntos, al final quedara en v1.y el mas bajo y en v3.y el mas alto
+ */
 static void sortByY() {
-    struct Vertex vAux;
-    if (v1.y > v2.y) {
-        vAux = v1;
-        v1 = v2;
-        v2 = vAux;
+    Vertex *auxptr;
+
+    aptr = &v3;
+    mptr = &v2;
+    bptr = &v1;
+
+    if (mptr->y > aptr->y) {
+    	auxptr = mptr;
+    	mptr = aptr;
+    	aptr = auxptr;
     }
-    if (v1.y > v3.y) {
-        vAux = v1;
-        v1 = v3;
-        v3 = vAux;
+    // aptr y mptr estan ordenados correctamente
+    if (bptr->y > mptr->y) {
+    	auxptr = mptr;
+    	mptr = bptr;
+    	bptr = auxptr;
     }
-    if (v2.y > v3.y) {
-        vAux = v2;
-        v2 = v3;
-        v3 = vAux;    }
-}
-
-
-static float elMasTxiki(float a, float b){
-    if (a<b) return a;
-    else return b;
-}
-
-static float elMasGrande(float a, float b){
-    if (a<b) return b;
-    else return a;
-}
-
-static char color(int x, int y){
-    if((x % 2) == 0){
-        if (( y % 2 ) == 0){
-            return 'n';
-        }
-        else{
-            return 'b';
-        }
-    }else{
-        if((y % 2) == 0){
-            return 'b';
-        }
-        else{
-            return 'n';
-        }
+    // el bptr es el más bajo fijo!
+    if (mptr->y > aptr->y) {
+    	auxptr = aptr;
+    	aptr = mptr;
+    	mptr = auxptr;
     }
 }
 
+float color(float u, float v) {
+    int x,y;
+    x=u/0.125;
+    y=v/0.125;
 
+    if( (x % 2) == 0 ) {
+        if ( ( y % 2 ) == 0 ) {
+            return (0.0);
+        } else {
+            return (1.0);
+        }
+    }else {
+        if( (y % 2) == 0 ) {
+            return (1.0);
+        } else {
+            return (0.0);
+        }
+    }
+}
+
+void dibujarLineas(float line){
+    float slopeUX, slopeVX, u, v, val;
+
+    slopeUX = ((dptr->u-iptr->u)/(dptr->x-iptr->x));
+    slopeVX = ((dptr->v-iptr->v)/(dptr->x-iptr->x));
+    u = iptr->u;
+    v = iptr->v;
+    for (float x = iptr->x; x < dptr->x; x++) {
+        u += slopeUX;
+        v += slopeVX;
+
+        val = color(u, v);
+        glColor3f(val, val,val );
+        glBegin(GL_POINTS);
+            glVertex2f(x, line);
+        glEnd();
+    }
+}
+
+static void dibujarVertices(){
+    glPointSize(10.0f);
+    glBegin(GL_POINTS);
+        glColor3f(1.0f,0.0f,0.0f);
+        glVertex2f(bptr->x,bptr->y);
+        glColor3f(0.0f,1.0f,0.0f);
+        glVertex2f(mptr->x,mptr->y);
+        glColor3f(0.0f,0.0f,1.0f);
+        glVertex2f(aptr->x,aptr->y);
+    glEnd();
+}
 
 static void draw(void) {
+    float slope1, slope2, slopeU1, slopeU2, slopeV1, slopeV2;
+    float line;
+
+    Vertex c1,c2;
+
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0.0, 500.0, 0.0, 500.0,-250.0, 250.0);
 
-    sortByY();
-
-    glPointSize(10.0f);
-    glBegin(GL_POINTS);
-    glColor3f(1.0f,0.0f,0.0f);
-    glVertex2f(v1.x,v1.y);
-    glColor3f(0.0f,1.0f,0.0f);
-    glVertex2f(v2.x,v2.y);
-    glColor3f(0.0f,0.0f,1.0f);
-    glVertex2f(v3.x,v3.y);
-    glEnd();
+    dibujarVertices();
 
     glPointSize(1.0f);
     glColor3f(1.0f,1.0f,1.0f);
 
-    float inX, outX, x, line, slope1, slope2, slopeUY, slope2UY, inUV, outUV, u, v;
-    char a;
+    c1.x = bptr->x; c1.u = bptr->u; c1.v = bptr->v;     c2.x = bptr->x; c2.u = bptr->u; c2.v = bptr->v;
 
+    slope1 = ((aptr->x-bptr->x)/(aptr->y-bptr->y));     slope2 = ((mptr->x-bptr->x)/(mptr->y-bptr->y));
+    slopeU2 = ((mptr->u-bptr->u)/(mptr->y-bptr->y));    slopeU1 = ((aptr->u-bptr->u)/(aptr->y-bptr->y));
+    slopeV2 = ((mptr->v-bptr->v)/(mptr->y-bptr->y));    slopeV1 = ((aptr->v-bptr->v)/(aptr->y-bptr->y));
 
-    inX = v1.x;
-    outX = v1.x;
-    slope1 = ((v3.x-v1.x)/(v3.y-v1.y));
-    slope2 = ((v2.x-v1.x)/(v2.y-v1.y));
-    if (v1.y == v2.y){
-        inX = v1.x;
-        outX = v2.x;
+    if (bptr->y == mptr->y) {
+        c1.x = bptr->x; c1.u = bptr->u; c1.v = bptr->v;
+        c2.x = mptr->x; c2.u = mptr->u; c2.v = mptr->v;
+    }
+    if (slope1 < slope2) {
+        iptr = &c1;
+        dptr = &c2;
+	} else {
+	    iptr = &c2;
+	    dptr = &c1;
+	}
+    for (line = bptr->y; line < mptr->y; line++, c1.x += slope1, c2.x += slope2,
+        c1.u += slopeU1, c2.u += slopeU2, c1.v+=slopeV1, c2.v+=slopeV2) {
+        dibujarLineas(line);
+	}
+
+    slope2 = ((aptr->x-mptr->x)/(aptr->y-mptr->y));
+    slopeU2 = ((aptr->u-mptr->u)/(aptr->y-mptr->y));    slopeV2 = ((aptr->v-mptr->v)/(aptr->y-mptr->y));
+
+    for (line = mptr->y; line < aptr->y; line++, c1.x += slope1, c2.x += slope2,
+        c1.u += slopeU1, c2.u += slopeU2, c1.v+=slopeV1, c2.v+=slopeV2) {
+        dibujarLineas(line);
     }
 
-
-    inUV = v1.u;
-    outUV = v3.u;
-    slopeUY = ((v3.u-v1.u)/(v3.x-v1.x));
-    slope2UY = ((v2.v-v1.v)/(v2.x-v1.x));
-
-
-    u = inUV;
-    v = outUV;
-    for (line = v1.y; line < v2.y; line++, inX += slope1, outX += slope2) {
-        printf("%f, %f\n",u,v);
-        u += slopeUY;
-        v += slope2UY;
-        for (x = elMasTxiki(inX,outX); x < elMasGrande(inX,outX); x++) {
-
-            a = color(u/0.125, v/0.125);
-            if (a=='n') glColor3f(0.0f, 0.0f, 0.0f);
-            if (a=='b') glColor3f(1.0f, 1.0f, 1.0f);
-            glBegin(GL_POINTS);
-            glVertex2f(x, line);
-            glEnd();
-        }
-    }
-
-    slope2=((v3.x-v2.x)/(v3.y-v2.y));
-    slope2UY = ((v3.v-v2.v)/(v3.x-v2.x));
-
-    for (line = v2.y; line < v3.y; line++, inX += slope1, outX += slope2) {
-        u += slopeUY;
-        v += slope2UY;
-        printf("%f, %f, %f, %f\n",u,v,slopeUY,slope2UY);
-        for (x = elMasTxiki(inX,outX); x < elMasGrande(inX,outX); x++ ) {
-            //u += slopeUY;
-            a = color(u/0.125, v/0.125);
-            if (a=='n') glColor3f(0.0f, 0.0f, 0.0f);
-            if (a=='b') glColor3f(1.0f, 1.0f, 1.0f);
-            glBegin(GL_POINTS);
-            glVertex2f(x,line);
-            glEnd();
-        }
-    }
     glFlush();
 }
 
 static void keyboard (unsigned char key, int x, int y) {
+
     switch(key)	{
-        case 112: // P
-            v1.x += 20.0f;
-            printf("%f\n", v1.x);
+        case 98: // b
+            selectptoptr = bptr;
+            break;
+        case 110: // n
+            selectptoptr = mptr;
+            break;
+        case 109: // m
+            selectptoptr = aptr;
             break;
         case 27:  // <ESC>
             exit(0);
@@ -149,25 +159,26 @@ static void keyboard (unsigned char key, int x, int y) {
         default:
             printf("%d %c\n", key, key );
     }
+    sortByY();
     glutPostRedisplay();
 }
 
 void SpecialKeys(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_LEFT:
-            v1.x -= 20.0f;
-            //printf("%f\n", v1.x);
+            selectptoptr->x -= 20.0f;
             break;
         case GLUT_KEY_RIGHT:
-            v1.x += 20.0f;
+            selectptoptr->x += 20.0f;
             break;
         case GLUT_KEY_UP:
-            v1.y += 20.0f;
+            selectptoptr->y += 20.0f;
             break;
         case GLUT_KEY_DOWN:
-            v1.y -= 20.0f;
+            selectptoptr->y -= 20.0f;
             break;
     }
+    sortByY();
     glutPostRedisplay();
 }
 
@@ -178,14 +189,17 @@ int main(int argc, char **argv) {
     glutInitWindowSize(500,500);
     glutCreateWindow("OpenGL");
     v1.x=0.0f, v1.y=0.0f, v2.x=0.0f, v2.y=500.0f, v3.x=500.0f, v3.y=0.0f;
-    v1.u=0, v2.u=0;v3.u=1;
-    v1.v=0; v2.v=1;v3.u=1;
+    v1.u=0, v2.u=0; v3.u=1;
+    v1.v=0; v2.v=1; v3.v=1;
+
+    sortByY();
+    selectptoptr = bptr;
 
     glutDisplayFunc(draw);
     glutKeyboardFunc(keyboard);
     glutSpecialFunc(SpecialKeys);
 
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
     glutMainLoop();
     return 0;
 }
