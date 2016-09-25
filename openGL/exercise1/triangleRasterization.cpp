@@ -3,118 +3,140 @@
 #include <GL/glut.h>
 #include <math.h>
 
-
-static float LOCAL_Red = 0.0f;
-
 struct Vertex {
     float x,y;
-} v1, v2, v3, vAux;
+};
 
-static void sortByY()
-{
-    if (v1.y > v2.y)
-    {
+struct Vertex v1, v2, v3;
+
+/**
+ * Ordena los vertices usando 3 puntos, al final quedara en v1.y el mas bajo y en v3.y el mas alto
+ */
+static void sortByY() {
+    printf("%f,%f,%f,%f,%f,%f\n",v1.x,v1.y,v2.x,v2.y,v3.x,v3.y );
+    struct Vertex vAux;
+    if (v1.y > v2.y) {
         vAux = v1;
         v1 = v2;
         v2 = vAux;
     }
-    if (v1.y > v3.y)
-    {
+    if (v1.y > v3.y) {
         vAux = v1;
         v1 = v3;
         v3 = vAux;
     }
-    if (v2.y > v3.y)
-    {
+    if (v2.y > v3.y) {
         vAux = v2;
         v2 = v3;
         v3 = vAux;
     }
+    printf("%f,%f,%f,%f,%f,%f\n",v1.x,v1.y,v2.x,v2.y,v3.x,v3.y );
+}
+static float elmastxiki(float a, float b){
+    if (a < b) return a;
+    else return b;
+}
+
+static float elmasgrande(float a, float b){
+    if (a < b) return b;
+    else return a;
 }
 
 static void draw(void) {
-    float line,x;
     glClear(GL_COLOR_BUFFER_BIT);
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0.0, 500.0, 0.0, 500.0,-250.0, 250.0);
 
-    glColor3f(1.0f,1.0f,1.0f);
-    glBegin(GL_POINTS);
-    v1.x=220.0f, v1.y=100.0f, v2.x=437.0f, v2.y=215.0f, v3.x=150.0f, v3.y=400.0f;
     sortByY();
-    glColor3f(1.0f,0.0f,0.0f);
-    glVertex3f(220.0f,100.0f,0.0f);
-    glColor3f(0.0f,1.0f,0.0f);
-    glVertex3f(437.0f,215.0f,0.0f);
-    glColor3f(0.0f,0.0f,1.0f);
-    glVertex3f(150.0f,400.0f,0.0f);
+
+    glPointSize(10.0f);
+    glBegin(GL_POINTS);
+        glColor3f(1.0f,0.0f,0.0f);
+        glVertex2f(v1.x,v1.y);
+        glColor3f(0.0f,1.0f,0.0f);
+        glVertex2f(v2.x,v2.y);
+        glColor3f(0.0f,0.0f,1.0f);
+        glVertex2f(v3.x,v3.y);
+    glEnd();
+
+    glPointSize(1.0f);
     glColor3f(1.0f,1.0f,1.0f);
 
-    float in=v1.x, out=v1.x, slope1=((v2.x-v1.x)/(v2.y-v1.y)), slope2=((v3.x-v1.x)/(v3.y-v1.y));
-    for (line = v1.y; line < v2.y; line++) {
-        in += round(slope1);
-        out += round(slope2);
-        for (x = in; x < out; x++) {
+    float in = v1.x, out = v1.x, x, line, slope1 = ((v3.x-v1.x)/(v3.y-v1.y)), slope2 = ((v2.x-v1.x)/(v2.y-v1.y));
+
+    if (v1.y==v2.y){
+        in=v1.x;
+        out=v2.x;
+    }
+    for (line = v1.y; line < v2.y; line++, in += slope1, out += slope2) {
+        for (x = elmastxiki(in, out); x < elmasgrande(in,out); x++) {
             glBegin(GL_POINTS);
-            glVertex2f(x,line);
+                glVertex2f(x, line);
             glEnd();
         }
     }
 
     slope2=((v3.x-v2.x)/(v3.y-v2.y));
-    for (line = v2.y; line < v3.y; line++) {
-        in += round(slope1);
-        out += round(slope2);
-        for (x = in; x < out; x++) {
+
+    for (;line < v3.y; line++, in += slope1, out += slope2) {
+        for (x = elmastxiki(in, out); x < elmasgrande(in,out); x++ ) {
             glBegin(GL_POINTS);
-            glVertex2f(x,line);
+                glVertex2f(x,line);
             glEnd();
         }
     }
-    glEnd();
     glFlush();
 }
 
-// This function will be called whenever the user pushes one key
 static void keyboard (unsigned char key, int x, int y) {
-    switch(key)	{
-        case 'r':
-            if ( LOCAL_Red > 0.01f ) LOCAL_Red -= 0.1f;
-            printf ("red   : ");
+  	switch(key)	{
+        case 112: // P
+            v1.x += 20.0f;
+            printf("%f\n", v1.x);
             break;
-        case 'R':
-            if ( LOCAL_Red < 1.0f ) LOCAL_Red += 0.1f;
-            printf ("red   : ");
-            break;
-        case 27:  // <ESC>
-            exit( 0 );
-            break;
-        default:
-            printf("%d %c\n", key, key );
-    }
+      	case 27:  // <ESC>
+      		exit(0);
+      		break;
+      	default:
+      		printf("%d %c\n", key, key );
+  	}
+  	glutPostRedisplay();
+}
 
-    printf ("(R = %f) (G = %f) (B = %f) \n", LOCAL_Red, LOCAL_Red, LOCAL_Red );
-    // The screen must be drawn to show the new values
+void SpecialKeys(int key, int x, int y) {
+    switch (key) {
+		case GLUT_KEY_LEFT:
+            v1.x -= 20.0f;
+            //printf("%f\n", v1.x);
+            break;
+		case GLUT_KEY_RIGHT:
+            v1.x += 20.0f;
+			break;
+		case GLUT_KEY_UP:
+            v1.y += 20.0f;
+			break;
+		case GLUT_KEY_DOWN:
+            v1.y -= 20.0f;
+			break;
+	}
     glutPostRedisplay();
 }
 
 int main(int argc, char **argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB);
-    //Configure Window Position
     glutInitWindowPosition(50, 25);
-    //Configure Window Size
     glutInitWindowSize(500,500);
-    //Create Window
     glutCreateWindow("OpenGL");
-    //Llamadas a las funciones responsables
+
+    v1.x=220.0f, v1.y=100.0f, v2.x=437.0f, v2.y=100.0f, v3.x=150.0f, v3.y=400.0f;
+
     glutDisplayFunc(draw);
     glutKeyboardFunc(keyboard);
+    glutSpecialFunc(SpecialKeys);
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    // Loop require by OpenGL
     glutMainLoop();
     return 0;
 }
