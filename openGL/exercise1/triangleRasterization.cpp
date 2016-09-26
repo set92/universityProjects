@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <GL/glut.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct {
     float x,y,u,v;
@@ -9,9 +11,10 @@ typedef struct {
 Vertex v1, v2, v3;
 Vertex *aptr, *bptr, *mptr; // punteros al alto, bajo y medio
 Vertex *iptr, /*!< Puntero al punto de entrada de la linea a dibujar */
-        *dptr; /*!< Puntero al punto de salida de la linea a dibujar */
+*dptr; /*!< Puntero al punto de salida de la linea a dibujar */
 Vertex *selectptoptr; /*!< Puntero al vertice seleccionado por el usuario */
 
+int msaa = 0;
 /**
  * Ordena los vertices usando 3 puntos, al final quedara en v1.y el mas bajo y en v3.y el mas alto
  */
@@ -88,7 +91,7 @@ void dibujarLineas(float line){
     }
 }
 /**
- * Dibujado de los 3 vertices del triangulo
+ * Drawing the 3 vertex with different colors
  */
 static void dibujarVertices(){
     glPointSize(10.0f);
@@ -102,17 +105,22 @@ static void dibujarVertices(){
     glEnd();
 }
 
+void reshape(int width, int height) {
+    // we ignore the params and always resize the window to
+    glutReshapeWindow(500, 500);
+}
+
 static void draw(void) {
     float slope1, slope2, slopeU1, slopeU2, slopeV1, slopeV2;
     float line;
-
     Vertex c1,c2;
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(0.0, 500.0, 0.0, 500.0,-250.0, 250.0);
-
+    if (msaa) glEnable(GL_MULTISAMPLE_ARB);
+    else glDisable(GL_MULTISAMPLE_ARB);
     dibujarVertices();
 
     glPointSize(1.0f);
@@ -138,9 +146,9 @@ static void draw(void) {
         dptr = &c1;
     }
 
-    // Dibujamos la parte inferior del triangulo, hasta que cambia la pendiente
+    // We draw the lower side of the triangle until the slope changes
     for (line = bptr->y; line < mptr->y; line++, c1.x += slope1, c2.x += slope2,
-            c1.u += slopeU1, c2.u += slopeU2, c1.v+=slopeV1, c2.v+=slopeV2) {
+         c1.u += slopeU1, c2.u += slopeU2, c1.v+=slopeV1, c2.v+=slopeV2) {
         dibujarLineas(line);
     }
 
@@ -151,7 +159,7 @@ static void draw(void) {
 
     // Draw the upper side of the triangle
     for (line = mptr->y; line < aptr->y; line++, c1.x += slope1, c2.x += slope2,
-            c1.u += slopeU1, c2.u += slopeU2, c1.v+=slopeV1, c2.v+=slopeV2) {
+         c1.u += slopeU1, c2.u += slopeU2, c1.v+=slopeV1, c2.v+=slopeV2) {
         dibujarLineas(line);
     }
 
@@ -169,6 +177,12 @@ static void keyboard (unsigned char key, int x, int y) {
             break;
         case 109: // m
             selectptoptr = aptr;
+            break;
+        case 108: // l
+            msaa = !msaa;
+            if(msaa == 1)printf("msaa activado\n");
+            else printf("msaa desactivado\n");
+            glutPostRedisplay();
             break;
         case 27:  // <ESC>
             exit(0);
@@ -195,22 +209,60 @@ void SpecialKeys(int key, int x, int y) {
             selectptoptr->y -= 20.0f;
             break;
         default:
-            printf("%d\n", key );
+            printf("El codigo ASCII de la tecla pulsada es %d\n", key );
     }
     sortByY();
     glutPostRedisplay();
 }
 
+bool puntoCoorrecto(Vertex v){
+    if(v.x<0 || v.x>500 || v.y<0 || v.y>500 ||
+            v.u>1 || v.u<0 || v.v<0 || v.v>1) return false;
+    else return true;
+}
+
+bool validarCoordenadas(){
+    bool pt1 = puntoCoorrecto(v1);
+    bool pt2 = puntoCoorrecto(v2);
+    bool pt3 = puntoCoorrecto(v3);
+    if(pt1 && pt2 && pt3) return true;
+    else{
+        printf("Hay algún valor erróneo. Mete los datos de nuevo\n");
+        return false;
+    }
+}
+
+bool pedirCoordsUsuario(){
+    printf("Mete v1.x: ");    scanf("%f", &v1.x);
+    printf("Mete v1.y: ");    scanf("%f", &v1.y);
+    printf("Mete v1.u: ");    scanf("%f", &v1.u);
+    printf("Mete v1.v: ");    scanf("%f", &v1.v);
+
+    printf("Mete v2.x: ");    scanf("%f", &v2.x);
+    printf("Mete v2.y: ");    scanf("%f", &v2.y);
+    printf("Mete v2.u: ");    scanf("%f", &v2.u);
+    printf("Mete v2.v: ");    scanf("%f", &v2.v);
+
+    printf("Mete v3.x: ");    scanf("%f", &v3.x);
+    printf("Mete v3.y: ");    scanf("%f", &v3.y);
+    printf("Mete v3.u: ");    scanf("%f", &v3.u);
+    printf("Mete v3.v: ");    scanf("%f", &v3.v);
+
+    return validarCoordenadas();
+}
+
 int main(int argc, char **argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
-    glEnable(GL_MULTISAMPLE);
     glutInitWindowPosition(50, 25);
     glutInitWindowSize(500,500);
     glutCreateWindow("OpenGL");
-    v1.x=0.0f, v1.y=0.0f, v2.x=0.0f, v2.y=500.0f, v3.x=500.0f, v3.y=0.0f;
-    v1.u=0, v2.u=0; v3.u=1;
-    v1.v=0; v2.v=1; v3.v=1;
+    //v1.x=0.0f, v1.y=0.0f, v2.x=0.0f, v2.y=0.0f, v3.x=0.0f, v3.y=0.0f;
+    //v1.u=0, v2.u=0; v3.u=0;
+    //v1.v=0; v2.v=0; v3.v=0;
+
+    bool coord = pedirCoordsUsuario();
+    while(coord == false) coord = pedirCoordsUsuario();
 
     sortByY();
     selectptoptr = bptr;
@@ -218,6 +270,10 @@ int main(int argc, char **argv) {
     glutDisplayFunc(draw);
     glutKeyboardFunc(keyboard);
     glutSpecialFunc(SpecialKeys);
+    glutReshapeFunc(reshape);
+
+    //glutReshapeWindow(400,400);
+    //printf("%s\n",glGetString(GL_RENDERER));
 
     glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
     glutMainLoop();
