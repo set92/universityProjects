@@ -257,9 +257,6 @@ int main(int argc, char **argv) {
     glutInitWindowPosition(50, 25);
     glutInitWindowSize(500,500);
     glutCreateWindow("OpenGL");
-    //v1.x=0.0f, v1.y=0.0f, v2.x=0.0f, v2.y=0.0f, v3.x=0.0f, v3.y=0.0f;
-    //v1.u=0, v2.u=0; v3.u=0;
-    //v1.v=0; v2.v=0; v3.v=0;
 
     bool coord = pedirCoordsUsuario();
     while(coord == false) coord = pedirCoordsUsuario();
