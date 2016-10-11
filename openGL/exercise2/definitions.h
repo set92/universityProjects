@@ -5,7 +5,7 @@
 
 /** DEFINITIONS **/
 
-#define KG_WINDOW_TITLE                     "KbG Praktika - Borja Calvo (borja.calvo@ehu.es)"
+#define KG_WINDOW_TITLE                     "Transformaciones geometricas"
 #define KG_WINDOW_WIDTH                     600
 #define KG_WINDOW_HEIGHT                    400
 #define KG_WINDOW_X                         50
@@ -114,6 +114,9 @@ struct object3d{
     point3 min;                         /* coordinates' lower bounds */
     point3 max;                         /* coordinates' bigger bounds */
     struct object3d *next;              /* next element in the pile of objects */
+    
+    struct typeNode *pila;              /* pila de transformaciones */
+    
 };
 
 typedef struct object3d object3d;

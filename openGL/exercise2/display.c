@@ -85,7 +85,7 @@ void display(void) {
 
     /* Now we start drawing the object */
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    //glLoadIdentity();
 
     /*First, we draw the axes*/
     draw_axes();
@@ -101,7 +101,8 @@ void display(void) {
         }
 
         /* Draw the object; for each face create a new polygon with the corresponding vertices */
-        glLoadIdentity();
+        //glLoadIdentity();
+        aux_obj.m[16] = GL_MODELVIEW;
         for (f = 0; f < aux_obj->num_faces; f++) {
             glBegin(GL_POLYGON);
             for (v = 0; v < aux_obj->face_table[f].num_vertices; v++) {

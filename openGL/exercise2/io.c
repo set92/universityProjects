@@ -45,7 +45,8 @@ void keyboard(unsigned char key, int x, int y) {
     object3d *auxiliar_object = 0;
     GLdouble wd,he,midx,midy;
 
-    switch (key) {
+    switch (key) 
+    {
     case 'f':
     case 'F':
         /*Ask for file*/
@@ -72,6 +73,10 @@ void keyboard(unsigned char key, int x, int y) {
             auxiliar_object->next = _first_object;
             _first_object = auxiliar_object;
             _selected_object = _first_object;
+            /* insertar la identidad en la pila */
+            float m[16];
+            glGetFloatv(GL_MODELVIEW_MATRIX, m);
+            auxiliar_object->pila.insertFirst(m);
             printf("%s\n",KG_MSSG_FILEREAD);
             break;
         }
@@ -112,8 +117,8 @@ void keyboard(unsigned char key, int x, int y) {
         break;
 
     case '-':
-        //if (glutGetModifiers() == GLUT_ACTIVE_CTRL){
-            /*Increase the projection plane; compute the new dimensions*/
+        if (glutGetModifiers() == GLUT_ACTIVE_CTRL){
+            /*Decrease the projection plane; compute the new dimensions*/
             wd=(_ortho_x_max-_ortho_x_min)/KG_STEP_ZOOM;
             he=(_ortho_y_max-_ortho_y_min)/KG_STEP_ZOOM;
             /*In order to avoid moving the center of the plane, we get its coordinates*/
@@ -124,11 +129,11 @@ void keyboard(unsigned char key, int x, int y) {
             _ortho_x_min = midx - wd/2;
             _ortho_y_max = midy + he/2;
             _ortho_y_min = midy - he/2;
-        //}
+        }
         break;
 
     case '+':
-        //if (glutGetModifiers() == GLUT_ACTIVE_CTRL){
+        if (glutGetModifiers() == GLUT_ACTIVE_CTRL){
             /*Increase the projection plane; compute the new dimensions*/
             wd=(_ortho_x_max-_ortho_x_min)*KG_STEP_ZOOM;
             he=(_ortho_y_max-_ortho_y_min)*KG_STEP_ZOOM;
@@ -140,20 +145,89 @@ void keyboard(unsigned char key, int x, int y) {
             _ortho_x_min = midx - wd/2;
             _ortho_y_max = midy + he/2;
             _ortho_y_min = midy - he/2;
-        //}
+        }
         break;
+        
+    case 'M':
+    case 'm'://Activar traslacion
+            
+        break;
+            
+    case 'B':
+    case 'b'://Activar rotación
+        break;
+        
+    case 'T':
+    case 't'://Activar escalado
+    
+        
+        break;
+    
+    case 'G':
+    case 'g'://Activar transformaciones en el sistema de referencia del mundo
+             //Transformaciones globales
+        break;
+        
+    case 'L':
+    case 'l'://Activar transformaciones en el sistema de referencia local del 
+             //objeto (objeto 3D, ccámara o luces) )
+        break;
+    
+    case 'O':
+    case 'o'://Aplicar transformaciones al objeto seleccionado
+        break;
+        
+    case 'K':
+    case 'k'://Aplicar transformaciones a la cámara actual
+        break;
+        
+    case 'A':
+    case 'a'://Aplicar transformaciones a la luz selecionada
+        break;
+        
     case '?':
         print_help();
         break;
+        
+    case 'z':
+    case 'Z':
+        if (glutGetModifiers() == GLUT_ACTIVE_CTRL){
+            //Código de deshacer las transformaciones
+        }
+        break;
+        
 
     case 27: /* <ESC> */
         exit(0);
         break;
+        
 
     default:
         /*In the default case we just print the code of the key. This is usefull to define new cases*/
         printf("%d %c\n", key, key);
     }
+    
+    
     /*In case we have do any modification affecting the displaying of the object, we redraw them*/
+    glutPostRedisplay();
+}
+
+void SpecialKeys(int key, int x, int y) {
+    switch (key) {
+        case GLUT_KEY_LEFT:
+            
+            break;
+        case GLUT_KEY_RIGHT:
+            
+            break;
+        case GLUT_KEY_UP:
+            
+            break;
+        case GLUT_KEY_DOWN:
+            
+            break;
+        default:
+            printf("El codigo ASCII de la tecla pulsada es %d\n", key );
+    }
     glutPostRedisplay();
 }
