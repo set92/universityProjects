@@ -106,7 +106,7 @@ typedef struct {
  * Structure to store a     *
  * pile of 3D objects       *
  ****************************/
-struct object3d{
+struct object3d {
     GLint num_vertices;                 /* number of vertices in the object*/
     vertex *vertex_table;               /* table of vertices */
     GLint num_faces;                    /* number of faces in the object */
@@ -114,11 +114,19 @@ struct object3d{
     point3 min;                         /* coordinates' lower bounds */
     point3 max;                         /* coordinates' bigger bounds */
     struct object3d *next;              /* next element in the pile of objects */
-    
+
     struct typeNode *pila;              /* pila de transformaciones */
-    
+
+};
+
+struct typeNode {
+    float m[16];
+
+    struct typeNode *next;
+    struct typeNode *prev;
 };
 
 typedef struct object3d object3d;
+typedef struct typeNode typeNode;
 
 #endif // DEFINITIONS_H

@@ -7,11 +7,11 @@ find_package (OpenGL REQUIRED)
 find_package (GLUT REQUIRED)
 
 file(GLOB SOURCE_FILES
-        *.cpp
-        *.h
+        exercise2/*.c
+        exercise2/*.h
         )
 
-add_executable(openGL ${SOURCE_FILES} exercise1//triangleRasterization.cpp)
+add_executable(openGL ${SOURCE_FILES} exercise2/main.c )
 
 link_directories(${OPENGL_gl_LIBRARY})
 
