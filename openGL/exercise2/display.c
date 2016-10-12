@@ -9,7 +9,6 @@
     #include <GL/glu.h>
 #endif
 
-
 /** EXTERNAL VARIABLES **/
 
 extern GLdouble _window_ratio;
