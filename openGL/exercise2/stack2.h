@@ -5,6 +5,8 @@
 int length();
 void displayForward();
 void insertFirst(typeNode *v);
-struct node* deleteFirst();
+void deleteMiddle();
+void deleteFirst();
+
 
 #endif

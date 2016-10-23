@@ -1,10 +1,16 @@
 #include <stdio.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glut.h>
 #include "display.h"
 #include "io.h"
 #include "definitions.h"
+#ifdef __linux__
+    #include <GL/glut.h>
+    #include <GL/gl.h>
+    #include <GL/glu.h>
+#elif __APPLE__
+    #include <GLUT/glut.h>
+    #include <OpenGL/gl.h>
+    #include <OpenGL/glu.h>
+#endif
 
 /** GLOBAL VARIABLES **/
 

@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <malloc.h>
 #include "definitions.h"
+
+
+#ifdef __linux__
+#include <malloc.h>
+#endif
+
 
 #define MAXLINE 200
 

@@ -1,7 +1,11 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#include <GL/gl.h>
+#ifdef __linux__
+    #include <GL/gl.h>
+#elif __APPLE__
+    #include <OpenGL/gl.h>
+#endif
 
 /** DEFINITIONS **/
 
