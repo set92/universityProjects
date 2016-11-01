@@ -113,16 +113,6 @@ int main()
 
 			close(dialogo);
 		}
-		/*
-			A COMPLETAR POR EL ALUMNO:
-			(1) Crear un nuevo proceso que atienda al cliente. Para ello:
-				· Crear un nuevo socket.
-				· Conectar con el socket del cliente.
-				· Responder al cliente y seguir con la comunicacion hasta recibir un mensaje vacio.
-			(3) Utilizar la funcion 'select' para comprobar que no
-			     llevamos mas de 2 minutos a la espera de recibir un
-			     mensaje. Si es asi, acabar.
-		*/
 
 		if(sendto(sock, buf, n, 0, (struct sockaddr *) &dir_cli, tam_dir) < 0)
 		{
