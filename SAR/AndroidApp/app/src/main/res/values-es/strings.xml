@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConverterCoins</string>
+    <string name="action_settings">Opciones</string>
+    <string name="title_activity_conversor">Cambia tus dolares a euros</string>
+    <string name="convertir">Convertir</string>
+    <string name="resultado">Resultado</string>
+    <string name="introduce_cantidad">Introduce cantidad</string>
+    <string name="conversor_dolar_euro">Conversor Dolar Euro</string>
+    <string name="encriptar">Encriptar</string>
+    <string name="introduce_tu_frase">Introduce tu frase</string>
+    <string name="encriptacion_cesar">Encriptacion Cesar</string>
+    <string name="cambiando">Cambiando a Conversor</string>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">ConverterCoins</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_conversor">Change your dolars to euros</string>
+    <string name="convertir">Turn into</string>
+    <string name="resultado">Results</string>
+    <string name="introduce_cantidad">Select your amount</string>
+    <string name="conversor_dolar_euro">Turn Dolars to Euros</string>
+    <string name="encriptar">Encript</string>
+    <string name="introduce_tu_frase"> Your phrase:</string>
+    <string name="encriptacion_cesar">Caesar encriptation</string>
+    <string name="cambiando">Changing to Converter</string>
+
+</resources>
