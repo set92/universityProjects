@@ -1,0 +1,56 @@
+[
+    {
+        "name": "darovi/pokephp",
+        "version": "1.1",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Darovi/pokephp.git",
+            "reference": "6b4c86149d0367eed42ba764f6885db6feea5eea"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Darovi/pokephp/zipball/6b4c86149d0367eed42ba764f6885db6feea5eea",
+            "reference": "6b4c86149d0367eed42ba764f6885db6feea5eea",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.8.*"
+        },
+        "time": "2016-11-16 14:23:17",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PokePHP\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dan Rovito",
+                "email": "dan@darovi.co"
+            }
+        ],
+        "description": "Pokeapi PHP Wrapper",
+        "keywords": [
+            "php",
+            "pokeapi",
+            "pokemon"
+        ]
+    }
+]

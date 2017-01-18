@@ -1,0 +1,15 @@
+{
+    "name": "set92/web",
+    "require": {
+        "darovi/pokephp": "1.*"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    },
+    "authors": [
+        {
+            "name": "Sergio",
+            "email": "set.tobur@gmail.com"
+        }
+    ]
+}

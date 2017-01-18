@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE comentarios [
+        <!ELEMENT comentarios (usuario)*>
+        <!ATTLIST comentarios
+                ult_id CDATA #REQUIRED>
+        <!ELEMENT usuario (fecha|nombre|email|comentario)*>
+        <!ATTLIST usuario
+                id CDATA #REQUIRED>
+        <!ELEMENT fecha (#PCDATA)>
+        <!ELEMENT nombre (#PCDATA)>
+        <!ELEMENT email (#PCDATA)>
+        <!ELEMENT comentario (#PCDATA)>
+        ]>
+<comentarios ult_id="comentario2">
+    <usuario id="comentario1">
+        <fecha>16:28:23, 11 December, 2016</fecha>
+        <nombre>nombre</nombre>
+        <email>email</email>
+        <comentario>come1</comentario>
+    </usuario>
+    <usuario id="comentario2">
+        <fecha>16:29:23, 11 December, 2016</fecha>
+        <nombre>nomb2</nombre>
+        <email>ema2</email>
+        <comentario>com2</comentario>
+    </usuario>
+</comentarios>
