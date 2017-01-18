@@ -1,0 +1,33 @@
+
+TODO
+-- (DONE) 0 -> cambiar el tipo de luz 
+-- ??????!!! crearNuevaLuz --> M
+-- (DONE) glShadeMode cuando ponerlo?en el main? pero entonces no es para cada objeto (F12) 
+-- (DONE) lista materiales
+-- (DONE) Poner los Fs en un método a parte pasando el parámetro de la luz
+-- Mirar donde hay que poner el actualizarFoco().
+
+-- (DONE) Comprobar que cutoff no es mayor a 90
+-- 
+
+EXTRA
+- Foco asociado a la camara
+- (DONE) Añadir F10, que des/activa todas las luces
+- (DONE) Cada objeto tiene un material
+- (DONE) F11 modo debug de la camara del foco
+
+
+
+PARA SACAR FUERA
+- (DONE -> método opcionSuprimir()) suprimir
+- 
+
+
+DOCUMENTACION
+- Al utilizar el modo gráfico para poder enceder/apagar una luz, poner que hay que introducir los datos por consola
+- Revisar los nuevos cambios en la documentación
+
+Dudas
+
+
+

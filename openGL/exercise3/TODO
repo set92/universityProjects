@@ -1,0 +1,20 @@
+-- ACABAR CON LAS CÁMARAS
+
+-- HACER LA FUNCIONALIDAD C (tecla)
+
+-- HACER LA FUNCIONALIDAD DE c (TECLA)
+
+-- CUANDO ROTAS OBJETO GIRAS CAMARA? SI
+
+-- CUANDO ROTAS LA CAMARA DE UN OBJETO, EL OBJETO HA DE ROTAR TAMBIEN? LIBRE ALBEDRÍO
+
+-- PONER CAMARA POR OBJETO, CÓMO PONER ESA CÁMARA.
+
+-- HACER QUE CUANDO MUEVES EL OBJETO SU CÁMARA SE MUEVA.
+
+-- PONER LAS LISTAS DE LAS CÁMARAS BIEN
+
+
+-- CAMBIAR: cuando se le de a tab hay que cambiar la camara del obj, y que la camara sea la del nuevo objeto seleccionado
+
+Tiene que ser P - Zc, si ponemos + en vez de - el objeto mirara al otro lado, pero el punto no puede tener un - delante nunca, cosa basica basica 
