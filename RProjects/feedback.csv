@@ -1,0 +1,24 @@
+Nombre,Sistema,Ao,Asignaturas,Provincia,Equipo,altura,transporte,Tiempo,Especialidad,estudio,TV,Internet,Deporte,Ocio
+Ameckro,Windows,1997,10,Otra,Otro,175,Andando,1,Ingeniería_del_Software,15,0,30,0,20
+X,Windows,1997,11,Guipuzcoa,Otro,187,Bus,20,No_lo_sé,15,5,20,0,15
+X,"Windows
+Android",1997,10,Guipuzcoa,No_me_gusta_el_futbol,180,Coche,20,Ingeniería_del_Software,10,2,16,0,12
+x,MacOX,1994,12,Guipuzcoa,No_me_gusta_el_futbol,156,Andando,10,Ingeniería_del_Software,15,0,15,0,2
+Julen,Windows,1997,10,Guipuzcoa,No_me_gusta_el_futbol,186,Bus,30,Ingeniería_del_Software,5,0,20,5,10
+X,Windows,1997,10,Guipuzcoa,Otro,185,Coche,20,No_lo_sé,15,4,20,15,18
+X,"Android",1994,9,Guipuzcoa,No_me_gusta_el_futbol,185,Bus,20,Ingeniería_del_Software,8,0,16,3,13
+x,Windows,1997,10,Otra,Otro,169,Tren,45,No_lo_sé,26,1,9,0,10
+set92,Linux,1992,6,Vizcaya,No_me_gusta_el_futbol,190,Andando,10,Computación,10,0,30,20,15
+Oier,Windows,1997,10,Guipuzcoa,Athletic_de_Bilbao,180,Bus,60,No_lo_sé,15,2,15,4,8
+danitxu19,Windows,1997,10,Guipuzcoa,Otro,180,Coche,12,Ingeniería_de_Computadores,20,10,40,10,20
+IZ,Linux,1997,10,Otra,No_me_gusta_el_futbol,168,Bus,25,Ingeniería_del_Software,3,1,20,8,5
+X,Linux,1990,4,Vizcaya,Athletic_de_Bilbao,175,Andando,15,Computación,10,0,30,20,40
+X,Windows,1997,10,Guipuzcoa,Real_Sociedad,178,Tren,50,No_lo_sé,2,0,15,5,8
+X,Windows,1997,11,Guipuzcoa,Real_Sociedad,187,Bus,30,Ingeniería_del_Software,10,5,20,13,15
+X,Android,1997,10,Guipuzcoa,Otro,190,Bus,40,No_lo_sé,3,40,30,20,40
+Señor X,Windows,1996,6,Guipuzcoa,No_me_gusta_el_futbol,176,Bus,45,No_lo_sé,7,0,40,28,4
+X,Windows,1990,8,Guipuzcoa,Real_Sociedad,188,Coche,30,Ingeniería_de_Computadores,5,10,10,0,8
+x,Windows,1996,9,Vizcaya,,179,Andando,5,Ingeniería_de_Computadores,10,0,40,4,40
+X,Windows,1994,11,Guipuzcoa,No_me_gusta_el_futbol,165,Bus,35,No_lo_sé,20,0,7,3,6
+X,Windows,1997,10,Alava,No_me_gusta_el_futbol,188,Andando,20,No_lo_sé,2,15,20,3,35
+X,Windows,1997,10,Guipuzcoa,No_me_gusta_el_futbol,193,Bus,40,No_lo_sé,5,1,20,0,10

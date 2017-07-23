@@ -1,0 +1,4 @@
+/home/set92/Documents/vevProject/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/set92/Documents/vevProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/set92/Documents/vevProject/cmake-build-debug/CMakeFiles/vevProject1.dir
+/home/set92/Documents/vevProject/cmake-build-debug/CMakeFiles/vevProject.dir

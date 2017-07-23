@@ -1,0 +1,405 @@
+cmake_minimum_required(VERSION 3.6)
+project(vevProject)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+#add_custom_target(vevProject COMMAND make -C ${vevProject_SOURCE_DIR} CLION_EXE_DIR=${PROJECT_BINARY_DIR})
+
+set(SOURCE_FILES
+        Browser/browser.cc
+        Browser/browser_gobj.cc
+        Browser/scenes.cc
+        Browser/scenes.h
+        Browser/skybox.cc
+        Browser/skybox.h
+        Camera/avatar.cc
+        Camera/avatar.h
+        Camera/avatarManager.cc
+        Camera/avatarManager.h
+        Camera/camera.cc
+        Camera/camera.h
+        Camera/cameraManager.cc
+        Camera/cameraManager.h
+        Geometry/gObject.cc
+        Geometry/gObject.h
+        Geometry/gObjectManager.cc
+        Geometry/gObjectManager.h
+        Geometry/triangleMesh.cc
+        Geometry/triangleMesh.h
+        Geometry/triangleMeshGL.cc
+        Geometry/triangleMeshGL.h
+        libjpeg6b-6b/ansi2knr.1
+        libjpeg6b-6b/ansi2knr.c
+        libjpeg6b-6b/cderror.h
+        libjpeg6b-6b/cdjpeg.c
+        libjpeg6b-6b/cdjpeg.h
+        libjpeg6b-6b/change.log
+        libjpeg6b-6b/cjpeg.1
+        libjpeg6b-6b/cjpeg.c
+        libjpeg6b-6b/ckconfig.c
+        libjpeg6b-6b/coderules.doc
+        libjpeg6b-6b/config.guess
+        libjpeg6b-6b/config.log
+        libjpeg6b-6b/config.status
+        libjpeg6b-6b/config.sub
+        libjpeg6b-6b/configure
+        libjpeg6b-6b/djpeg.1
+        libjpeg6b-6b/djpeg.c
+        libjpeg6b-6b/example.c
+        libjpeg6b-6b/filelist.doc
+        libjpeg6b-6b/install-sh
+        libjpeg6b-6b/install.doc
+        libjpeg6b-6b/jcapimin.c
+        libjpeg6b-6b/jcapistd.c
+        libjpeg6b-6b/jccoefct.c
+        libjpeg6b-6b/jccolor.c
+        libjpeg6b-6b/jcdctmgr.c
+        libjpeg6b-6b/jchuff.c
+        libjpeg6b-6b/jchuff.h
+        libjpeg6b-6b/jcinit.c
+        libjpeg6b-6b/jcmainct.c
+        libjpeg6b-6b/jcmarker.c
+        libjpeg6b-6b/jcmaster.c
+        libjpeg6b-6b/jcomapi.c
+        libjpeg6b-6b/jconfig.bcc
+        libjpeg6b-6b/jconfig.cfg
+        libjpeg6b-6b/jconfig.dj
+        libjpeg6b-6b/jconfig.doc
+        libjpeg6b-6b/jconfig.h
+        libjpeg6b-6b/jconfig.mac
+        libjpeg6b-6b/jconfig.manx
+        libjpeg6b-6b/jconfig.mc6
+        libjpeg6b-6b/jconfig.sas
+        libjpeg6b-6b/jconfig.st
+        libjpeg6b-6b/jconfig.vc
+        libjpeg6b-6b/jconfig.vms
+        libjpeg6b-6b/jconfig.wat
+        libjpeg6b-6b/jcparam.c
+        libjpeg6b-6b/jcphuff.c
+        libjpeg6b-6b/jcprepct.c
+        libjpeg6b-6b/jcsample.c
+        libjpeg6b-6b/jctrans.c
+        libjpeg6b-6b/jdapimin.c
+        libjpeg6b-6b/jdapistd.c
+        libjpeg6b-6b/jdatadst.c
+        libjpeg6b-6b/jdatasrc.c
+        libjpeg6b-6b/jdcoefct.c
+        libjpeg6b-6b/jdcolor.c
+        libjpeg6b-6b/jdct.h
+        libjpeg6b-6b/jddctmgr.c
+        libjpeg6b-6b/jdhuff.c
+        libjpeg6b-6b/jdhuff.h
+        libjpeg6b-6b/jdinput.c
+        libjpeg6b-6b/jdmainct.c
+        libjpeg6b-6b/jdmarker.c
+        libjpeg6b-6b/jdmaster.c
+        libjpeg6b-6b/jdmerge.c
+        libjpeg6b-6b/jdphuff.c
+        libjpeg6b-6b/jdpostct.c
+        libjpeg6b-6b/jdsample.c
+        libjpeg6b-6b/jdtrans.c
+        libjpeg6b-6b/jerror.c
+        libjpeg6b-6b/jerror.h
+        libjpeg6b-6b/jfdctflt.c
+        libjpeg6b-6b/jfdctfst.c
+        libjpeg6b-6b/jfdctint.c
+        libjpeg6b-6b/jidctflt.c
+        libjpeg6b-6b/jidctfst.c
+        libjpeg6b-6b/jidctint.c
+        libjpeg6b-6b/jidctred.c
+        libjpeg6b-6b/jinclude.h
+        libjpeg6b-6b/jmemansi.c
+        libjpeg6b-6b/jmemdos.c
+        libjpeg6b-6b/jmemdosa.asm
+        libjpeg6b-6b/jmemmac.c
+        libjpeg6b-6b/jmemmgr.c
+        libjpeg6b-6b/jmemname.c
+        libjpeg6b-6b/jmemnobs.c
+        libjpeg6b-6b/jmemsys.h
+        libjpeg6b-6b/jmorecfg.h
+        libjpeg6b-6b/jpegint.h
+        libjpeg6b-6b/jpeglib.h
+        libjpeg6b-6b/jpegtran.1
+        libjpeg6b-6b/jpegtran.c
+        libjpeg6b-6b/jquant1.c
+        libjpeg6b-6b/jquant2.c
+        libjpeg6b-6b/jutils.c
+        libjpeg6b-6b/jversion.h
+        libjpeg6b-6b/libjpeg.doc
+        libjpeg6b-6b/ltconfig
+        libjpeg6b-6b/ltmain.sh
+        libjpeg6b-6b/makcjpeg.st
+        libjpeg6b-6b/makdjpeg.st
+        libjpeg6b-6b/makeapps.ds
+        libjpeg6b-6b/Makefile
+        libjpeg6b-6b/makefile.ansi
+        libjpeg6b-6b/makefile.bcc
+        libjpeg6b-6b/makefile.cfg
+        libjpeg6b-6b/makefile.dj
+        libjpeg6b-6b/makefile.manx
+        libjpeg6b-6b/makefile.mc6
+        libjpeg6b-6b/makefile.mms
+        libjpeg6b-6b/makefile.sas
+        libjpeg6b-6b/makefile.unix
+        libjpeg6b-6b/makefile.vc
+        libjpeg6b-6b/makefile.vms
+        libjpeg6b-6b/makefile.wat
+        libjpeg6b-6b/makelib.ds
+        libjpeg6b-6b/makeproj.mac
+        libjpeg6b-6b/makljpeg.st
+        libjpeg6b-6b/maktjpeg.st
+        libjpeg6b-6b/makvms.opt
+        libjpeg6b-6b/patch-stamp
+        libjpeg6b-6b/rdbmp.c
+        libjpeg6b-6b/rdcolmap.c
+        libjpeg6b-6b/rdgif.c
+        libjpeg6b-6b/rdjpgcom.1
+        libjpeg6b-6b/rdjpgcom.c
+        libjpeg6b-6b/rdppm.c
+        libjpeg6b-6b/rdrle.c
+        libjpeg6b-6b/rdswitch.c
+        libjpeg6b-6b/rdtarga.c
+        libjpeg6b-6b/README
+        libjpeg6b-6b/structure.doc
+        libjpeg6b-6b/testimg.bmp
+        libjpeg6b-6b/testimg.jpg
+        libjpeg6b-6b/testimg.ppm
+        libjpeg6b-6b/testimgp.jpg
+        libjpeg6b-6b/testorig.jpg
+        libjpeg6b-6b/testprog.jpg
+        libjpeg6b-6b/transupp.c
+        libjpeg6b-6b/transupp.h
+        libjpeg6b-6b/usage.doc
+        libjpeg6b-6b/wizard.doc
+        libjpeg6b-6b/wrbmp.c
+        libjpeg6b-6b/wrgif.c
+        libjpeg6b-6b/wrjpgcom.1
+        libjpeg6b-6b/wrjpgcom.c
+        libjpeg6b-6b/wrppm.c
+        libjpeg6b-6b/wrrle.c
+        libjpeg6b-6b/wrtarga.c
+		Math/bbox.cc
+		Math/bbox.h
+        Math/bboxGL.cc
+        Math/bboxGL.h
+        Math/bsphere.cc
+        Math/bsphere.h
+        Math/intersect.cc
+        Math/intersect.h
+        Math/line.cc
+        Math/line.h
+        Math/Makefile
+        Math/plane.cc
+        Math/plane.h
+        Math/quaternion.cc
+        Math/quaternion.h
+        Math/segment.cc
+        Math/segment.h
+        Math/test.cc
+        Math/trfm3D.cc
+        Math/trfm3D.h
+        Math/trfmStack.cc
+        Math/trfmStack.h
+        Math/vector3.cc
+        Math/vector3.h
+        Misc/glm.c
+        Misc/glm.h
+        Misc/Makefile
+        Misc/mgriter.h
+        Misc/parse_scene.cc
+        Misc/parse_scene.h
+        Misc/tools.cc
+        Misc/tools.h
+        obj/Berlin/edificio.mtl
+        obj/Berlin/edificio.obj
+        obj/Berlin/ladrillo2.jpg
+        obj/Berlin/madera2.jpg
+        obj/Berlin/muro2.jpg
+        obj/Berlin/puerta2.jpg
+        obj/Berlin/suelo2.jpg
+        obj/casa5/wachhaus.3DS
+        obj/casa5/wachhaus.jpg
+        obj/casa5/wachhaus.mtl
+        obj/casa5/wachhaus.obj
+        obj/casita3/house01.3DS
+        obj/casita3/house01.mtl
+        obj/casita3/house01.obj
+        obj/casita3/housemap-256.jpg
+        obj/casita3/housemap-512.jpg
+        obj/casita3/housemap.jpg
+        obj/chapel/chapel-256.jpg
+        obj/chapel/chapel-cubicmap.jpg
+        obj/chapel/chapel.3DS
+        obj/chapel/chapel.jpg
+        obj/chapel/chapel.mtl
+        obj/chapel/chapel.obj
+        obj/chapel/chapel_dec01.mtl
+        obj/chapel/chapel_dec01.obj
+        obj/chapel/chapel_dec02.blend
+        obj/chapel/chapel_dec02.mtl
+        obj/chapel/chapel_dec02.obj
+        obj/chapel/chapel_I.mtl
+        obj/chapel/chapel_I.obj
+        obj/chapel/chapel_noT.mtl
+        obj/chapel/chapel_noT.obj
+        obj/cubes/brick.jpg
+        obj/cubes/cube_quad.obj
+        obj/cubes/cubo.mtl
+        obj/cubes/cubo.obj
+        obj/cubes/cubo2.mtl
+        obj/cubes/cubo2.obj
+        obj/cubes/cuboBMtex.mtl
+        obj/cubes/cuboBMtex.obj
+        obj/cubes/cubotex.mtl
+        obj/cubes/cubotex.obj
+        obj/cubes/decal.jpg
+        obj/cubes/quad.mtl
+        obj/cubes/quad.obj
+        obj/cubes/Texturemap0.jpg
+        obj/cubes/triangle.mtl
+        obj/cubes/triangle.obj
+        obj/dom/dom.jpg
+        obj/dom/dom.mtl
+        obj/dom/dom.obj
+        obj/floor/cityfloor.obj
+        obj/floor/cityfloor_grass.obj
+        obj/floor/floor.mtl
+        obj/floor/floor.obj
+        obj/floor/floor_thick.mtl
+        obj/floor/floor_thick.obj
+        obj/floor/simplefloor.mtl
+        obj/floor/simplefloor.obj
+        obj/floor/waterfloor.mtl
+        obj/floor/waterfloor.obj
+        obj/floor/waternmap.jpg
+        obj/floor/waternmap_small.jpg
+        obj/Imanol-Eli/Buttress.jpg
+        obj/Imanol-Eli/MainSide.jpg
+        obj/Imanol-Eli/OldLibrary.mtl
+        obj/Imanol-Eli/OldLibrary.obj
+        obj/Imanol-Eli/SideL.jpg
+        obj/Imanol-Eli/SideR.jpg
+        obj/Imanol-Eli/SLATE.jpg
+        obj/sky/bigcube.mtl
+        obj/sky/bigcube.obj
+        obj/sky/skybox_texture.jpg
+        obj/sky/xneg.jpg
+        obj/sky/xpos.jpg
+        obj/sky/yneg.jpg
+        obj/sky/ypos.jpg
+        obj/sky/zneg.jpg
+        obj/sky/zpos.jpg
+        obj/spheres/Checker_Map.jpg
+        obj/spheres/smooth.mtl
+        obj/spheres/smooth.obj
+        obj/spheres/solid.mtl
+        obj/spheres/solid.obj
+        obj/spheres/spherebmap.jpg
+        obj/spheres/sphereBump.mtl
+        obj/spheres/sphereBump.obj
+        obj/teapot/teapot.obj
+        obj/texturas/alpha_map.jpg
+        obj/texturas/caustic_jitter.gif
+        obj/texturas/caustics00.jpg
+        obj/texturas/Checker_Map.jpg
+        obj/texturas/decal.jpg
+        obj/texturas/delilah_darklotus_spheremap.jpg
+        obj/texturas/gloss_map_01.jpg
+        obj/texturas/spheremap_bar.jpg
+        obj/texturas/spheremap_metal.jpg
+        obj/texturas/Texturemap0.jpg
+        obj/texturas/zacharias_1.jpg
+        obj/envmap.png
+        obj/mustang.mtl
+        obj/mustang.obj
+        obj/projtex_sky.jpg
+        onlyShader/drawC.cc
+        onlyShader/drawCube.cc
+        onlyShader/dummy.frag
+        onlyShader/dummy.vert
+        onlyShader/Makefile
+        onlyShader/shaderUtils.cc
+        onlyShader/shaderUtils.h
+        Scene/node.cc
+        Scene/node.h
+        Scene/nodeManager.cc
+        Scene/nodeManager.h
+        Scene/renderState.cc
+        Scene/renderState.h
+        Scene/scene.cc
+        Scene/scene.h
+        Shaders/bump_shader.frag
+        Shaders/bump_shader.vert
+        Shaders/dummy.frag
+        Shaders/dummy.vert
+        Shaders/perfragment.frag
+        Shaders/perfragment.vert
+        Shaders/pervertex.frag
+        Shaders/pervertex.vert
+        Shaders/shader.cc
+        Shaders/shader.h
+        Shaders/shaderManager.cc
+        Shaders/shaderManager.h
+        Shaders/shaderUtils.cc
+        Shaders/shaderUtils.h
+        Shaders/sky.frag
+        Shaders/sky.vert
+        Shading/image.cc
+        Shading/image.h
+        Shading/imageManager.cc
+        Shading/imageManager.h
+        Shading/light.cc
+        Shading/light.h
+        Shading/lightManager.cc
+        Shading/lightManager.h
+        Shading/material.cc
+        Shading/material.h
+        Shading/materialManager.cc
+        Shading/materialManager.h
+        Shading/texture.cc
+        Shading/texture.h
+        Shading/textureManager.cc
+        Shading/textureManager.h
+        Shading/texturert.cc
+        Shading/texturert.h
+        Doxyfile
+        INSTALL
+        keys.txt
+        Makefile
+        mg.h Shaders/ProjectiveTexture.cc Shaders/ProjectiveTexture.h)
+
+include_directories(.)
+include_directories(Browser)
+include_directories(Camera)
+include_directories(Geometry)
+include_directories(Json)
+include_directories(libjpeg6b-6b)
+include_directories(Math)
+include_directories(Misc)
+include_directories(obj)
+include_directories(obj/Berlin)
+include_directories(obj/blender)
+include_directories(obj/casa5)
+include_directories(obj/casita3)
+include_directories(obj/chapel)
+include_directories(obj/cubes)
+include_directories(obj/dom)
+include_directories(obj/floor)
+include_directories(obj/Imanol-Eli)
+include_directories(obj/leeperry)
+include_directories(obj/sky)
+include_directories(obj/spheres)
+include_directories(obj/teapot)
+include_directories(obj/texturas)
+include_directories(onlyShader)
+include_directories(Scene)
+include_directories(scripts)
+include_directories(Shaders)
+include_directories(Shading)
+include_directories(test)
+
+#add_custom_target(vevProject COMMAND make -C ${vevProject_SOURCE_DIR} CLION_EXE_DIR=${PROJECT_BINARY_DIR} VERBATIM )
+add_custom_target(vevProject COMMAND make -C ${vevProject_SOURCE_DIR} CLION_EXE_DIR=${PROJECT_BINARY_DIR})
+
+add_executable(vevProject1 ${SOURCE_FILES})
+

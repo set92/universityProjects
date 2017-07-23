@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="src"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/set92/Documents/vevProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/set92/Documents/vevProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/set92/Documents/vevProject/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="src">
+				<Option output="/home/set92/Documents/vevProject/cmake-build-debug/src" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/set92/Documents/vevProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/set92/Documents/vevProject/Geometry"/>
+					<Add directory="/home/set92/Documents/vevProject/Math"/>
+					<Add directory="/home/set92/Documents/vevProject/Misc"/>
+					<Add directory="/home/set92/Documents/vevProject/Camera"/>
+					<Add directory="/home/set92/Documents/vevProject/Scene"/>
+					<Add directory="/home/set92/Documents/vevProject/Shaders"/>
+					<Add directory="/home/set92/Documents/vevProject/Shading"/>
+					<Add directory="/home/set92/Documents/vevProject/."/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 src"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="src/fast">
+				<Option output="/home/set92/Documents/vevProject/cmake-build-debug/src" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/set92/Documents/vevProject/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/set92/Documents/vevProject/Geometry"/>
+					<Add directory="/home/set92/Documents/vevProject/Math"/>
+					<Add directory="/home/set92/Documents/vevProject/Misc"/>
+					<Add directory="/home/set92/Documents/vevProject/Camera"/>
+					<Add directory="/home/set92/Documents/vevProject/Scene"/>
+					<Add directory="/home/set92/Documents/vevProject/Shaders"/>
+					<Add directory="/home/set92/Documents/vevProject/Shading"/>
+					<Add directory="/home/set92/Documents/vevProject/."/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/include-fixed"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/x86_64-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-linux-gnu/6.3.1/../../../../include/c++/6.3.1/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 src/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/set92/Documents/vevProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/set92/Documents/vevProject/Browser/browser_gobj.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Browser/scenes.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Browser/scenes.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Browser/skybox.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Browser/skybox.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/avatar.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/avatar.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/avatarManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/avatarManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/camera.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/camera.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/cameraManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Camera/cameraManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/gObject.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/gObject.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/gObjectManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/gObjectManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/triangleMesh.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/triangleMesh.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/triangleMeshGL.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Geometry/triangleMeshGL.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/bbox.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/bbox.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/bboxGL.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/bboxGL.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/bsphere.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/bsphere.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/intersect.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/intersect.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/line.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/line.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/plane.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/plane.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/trfm3D.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/trfm3D.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/trfmStack.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/trfmStack.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/vector3.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Math/vector3.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/glm.c">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/glm.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/json-forwards.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/json.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/jsoncpp.cpp">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/mgriter.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/parse_scene.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/parse_scene.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/tools.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Misc/tools.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/node.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/node.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/nodeManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/nodeManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/renderState.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/renderState.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/scene.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Scene/scene.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shaders/shader.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shaders/shader.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shaders/shaderManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shaders/shaderManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shaders/shaderUtils.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shaders/shaderUtils.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/image.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/image.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/imageManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/imageManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/light.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/light.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/lightManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/lightManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/material.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/material.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/materialManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/materialManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/texture.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/texture.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/textureManager.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/textureManager.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/texturert.cc">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/Shading/texturert.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/mg.h">
+			<Option target="src"/>
+		</Unit>
+		<Unit filename="/home/set92/Documents/vevProject/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

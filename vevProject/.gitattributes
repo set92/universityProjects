@@ -1,0 +1,4 @@
+test/* export-ignore
+scripts/* export-ignore
+obj/blender/* export-ignore
+obj/leeperry/* export-ignore
